@@ -564,10 +564,11 @@ Utils.getDataUri = function(url, callback, inCanvas, inFillcolor, w, h, clearCtx
         }
         ctx.drawImage(image, 0, 0);
         // Get raw image data
-        // callback && callback(canvas.toDataURL('image/png').replace(/^data:image\/(png|jpg);base64,/, ''));
+        //callback && callback(canvas.toDataURL('image/png').replace(/^data:image\/(png|jpg|gif);base64,/, ''));
 
         // ... or get as Data URI
         callback(canvas.toDataURL('image/png'));
+        //callback(canvas.toDataURL(png|jpg|gif));
     };
 
     image.src = url;
@@ -713,7 +714,7 @@ Utils.loadImageData = function(inUrl, callback) {
     image.onload = function() {
         callback(image);
         // or to get raw image data
-        // callback && callback(canvas.toDataURL('image/png').replace(/^data:image\/(png|jpg);base64,/, ''));
+        //callback && callback(canvas.toDataURL('image/png').replace(/^data:image\/(png|jpg|gif);base64,/, ''));
     };
     image.src = inUrl;
 };
@@ -747,6 +748,7 @@ Utils.loadImageWithOptions = (url, w, h, inCanvas, clearCtx, inFillcolor) =>
             ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
             window.bbb = canvas.toDataURL('image/png');
             resolve({url, status: 'ok', image: canvas.toDataURL('image/png')}); // raw image with: canvas.toDataURL('image/png').replace(/^data:image\/(png|jpg);base64,/, '');
+            //resolve({url, status: 'ok', image: canvas.toDataURL('image/png').replace(/^data:image\/(png|jpg|gif);base64,/, '')}); 
         };
         img.onerror = () => resolve({url, status: 'error'});
         img.src = url;
@@ -792,9 +794,10 @@ Utils.loadImage = function (inUrl, callback, inCanvas, inFillcolor) {
                     }
                 });
 
-                callback(canvas.toDataURL('image/png'), canvas.width, canvas.height, this);
+                callback(canvas.toDataURL('image/gif'), canvas.width, canvas.height, this);
                 // or to get raw image data
-                // callback && callback(canvas.toDataURL('image/png').replace(/^data:image\/(png|jpg);base64,/, ''));
+                //callback && callback(canvas.toDataURL('image/png').replace(/^data:image\/(png|jpg);base64,/, ''));
+                //callback && callback(canvas.toDataURL(/^data:image\/(png|jpg|gif);base64,/, this));
             }
         };
 
@@ -812,7 +815,7 @@ Utils.crop = function(canvas, offsetX, offsetY, width, height, callback, inCanva
     // drawImage(source, source_X, source_Y, source_Width, source_Height, dest_X, dest_Y, dest_Width, dest_Height)
     ctx.drawImage(canvas, offsetX, offsetY, width, height, 0, 0, buffer.width, buffer.height);
 
-    if(callback) callback(buffer.toDataURL('image/png'));
+    if(callback) callback(buffer.toDataURL('image/gif'));
 };
 
 Utils.getData = function (url) {

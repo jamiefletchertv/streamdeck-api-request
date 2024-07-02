@@ -7,16 +7,27 @@
                 { "Image": "images/api_key" }
             ],
             "Tooltip": "Make an API Request",
-            "UUID": "com.github.mjbnz.sd-api-request"
+            "UUID": "com.github.mjbnz.sd-api-request",
+            "PropertyInspectorPath": "propertyinspector/index.html",
+            "SupportedInMultiActions": true
+        },
+        {
+            "Icon": "images/cam_on",
+            "Name": "Camera Request",
+            "States": [
+                { "Image": "images/cam_on" }
+            ],
+            "Tooltip": "Cam Request",
+            "UUID": "com.github.mjbnz.sd-api-request-cam",
+            "PropertyInspectorPath": "propertyinspector/cam.html",
+            "SupportedInMultiActions": true
         }
     ],
     "SDKVersion": 2,
     "Author": "mjbnz",
     "CodePath": "index.html",
-    "PropertyInspectorPath": "propertyinspector/index.html",
     "Description": "REST Easily",
     "Name": "API Request",
-    "Icon": "images/api_action",
     "Category": "API Request",
     "CategoryIcon": "images/api_action",  
     "URL": "https://github.com/mjbnz/sd-api-request/",
